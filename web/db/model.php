@@ -26,7 +26,7 @@ class Model
     // Crear Usuario usando password_hash
     public function crearUsuario($usuario, $contrasena): false|string
     {
-        $sql = "INSERT INTO usuarios (usuario, contrasena) VALUES (:usuario, :contrasena)";
+        $sql = "INSERT INTO usuarios (username, password) VALUES (:usuario, :contrasena)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':usuario', $usuario);
         $contrasenaEncriptada = password_hash($contrasena, PASSWORD_DEFAULT);
@@ -38,7 +38,7 @@ class Model
     // Verificar si el usuario existe
     public function verificarUsuario($usuario)
     {
-        $sql = "SELECT * FROM usuarios WHERE usuario = :usuario";
+        $sql = "SELECT * FROM usuarios WHERE username = :usuario";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':usuario', $usuario);
         $stmt->execute();
@@ -48,13 +48,13 @@ class Model
     // Obtener Usuario para login y verificar la contraseña con password_verify
     public function obtenerUsuario($usuario, $contrasena)
     {
-        $sql = "SELECT * FROM usuarios WHERE usuario = :usuario";
+        $sql = "SELECT * FROM usuarios WHERE username = :usuario";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':usuario', $usuario);
         $stmt->execute();
         $usuario = $stmt->fetch();
 
-        if ($usuario && password_verify($contrasena, $usuario['contrasena'])) {
+        if ($usuario && password_verify($contrasena, $usuario['password'])) {
             return $usuario;
         }
 
