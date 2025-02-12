@@ -1,0 +1,85 @@
+.animacion-inicio {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Para que todo se apile verticalmente */
+
+    background: linear-gradient(
+            135deg,
+            #1e3c72 25%,
+            #2a5298 25%,
+            #2a5298 50%,
+            #1e3c72 50%,
+            #1e3c72 75%,
+            #2a5298 75%,
+            #2a5298
+    );
+    background-size: 40px 40px;
+    animation: move 4s linear infinite;
+}
+
+/* Animación de desplazamiento */
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 40px 40px;
+    }
+}
+
+/* Título principal */
+.titulo-inicio {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    letter-spacing: 1px;
+}
+
+/* Descripción debajo del título */
+.descripcion-inicio {
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* Efecto hover para la descripción */
+.descripcion-inicio:hover {
+    opacity: 1;
+    color: #ffcc00; /* Amarillo como en el header */
+}
+
+/* Estilo del botón de inicio */
+.boton-inicio {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background: #ffcc00;
+    border: none;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto hover para el botón */
+.boton-inicio:hover {
+    background: #ff9900; /* Cambio de color al pasar el mouse */
+    transform: scale(1.05); /* Aumento del tamaño */
+}
+
+/* Efecto activo en el botón */
+.boton-inicio:active {
+    transform: scale(1); /* Restablecer tamaño */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra más sutil */
+}
