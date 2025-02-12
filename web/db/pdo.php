@@ -1,9 +1,9 @@
 <?php
 
-$servidor = 'localhost';
+$servidor = '192.168.1.9';
 $puerto = '3306';
-$usuario = 'rafa';
-$clave = 'asdasd';
+$usuario = 'root';
+$clave = 'lolman';
 $bd = 'quizz';
 
 try {
