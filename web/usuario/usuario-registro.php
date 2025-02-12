@@ -1,5 +1,5 @@
 <?php
-require_once '../db/model.php';
+require_once '../db/usuario.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $model = Model::getInstance();
+    $model = Usuario::getInstance();
 
     // Verificar si el usuario ya existe
     $usuarioExistente = $model->verificarUsuario($usuario);
