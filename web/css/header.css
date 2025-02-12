@@ -1,0 +1,69 @@
+/* Estilos generales del header */
+.header {
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Degradado moderno */
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor de la navegación */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Lista de navegación */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Elementos de la lista */
+.nav-item {
+    position: relative;
+}
+
+/* Enlaces de navegación */
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Efecto hover (subrayado animado) */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: #ffcc00;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Cambio de color al pasar el cursor */
+.nav-link:hover {
+    color: #ffcc00;
+}
+
+/* Responsive: Ajuste en pantallas pequeñas */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
