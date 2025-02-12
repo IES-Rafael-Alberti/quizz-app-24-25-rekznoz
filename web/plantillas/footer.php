@@ -1,3 +1,3 @@
 <footer class="footer">
-    <p>© 2025 - Todos los derechos reservados</p>
+    <p class="footer-text">© 2025 - Todos los derechos reservados</p>
 </footer>
