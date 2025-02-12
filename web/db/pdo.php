@@ -1,6 +1,7 @@
 <?php
 
 $servidor = 'localhost';
+$puerto = '3306';
 $usuario = 'rafa';
 $clave = 'asdasd';
 $bd = 'quizz';
@@ -13,7 +14,7 @@ try {
     ];
 
     // Conexión a la base de datos usando PDO
-    $conn = new PDO("mysql:host=$servidor;dbname=$bd;charset=utf8", $usuario, $clave, $options);
+    $conn = new PDO("mysql:host=$servidor;dbname=$bd;port=$puerto;charset=utf8", $usuario, $clave, $options);
 
     // Establecer el modo de error
     // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
