@@ -6,7 +6,7 @@
 <main class="main">
     <div class="contenedor-formulario-registro">
         <h1 class="titulo-formulario-registro">Iniciar sesión</h1>
-        <form action="registro.php" method="post" class="formulario-registro">
+        <form action="usuario/usuario-registro.php" method="post" class="formulario-registro">
             <div class="input-container">
                 <input type="text" name="usuario" id="usuario" class="input-formulario-registro" required placeholder=" ">
                 <label for="usuario" class="label-formulario-registro">Usuario</label>
