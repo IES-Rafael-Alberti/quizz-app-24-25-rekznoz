@@ -6,7 +6,7 @@
 <main class="main">
     <div class="contenedor-formulario-login">
         <h1 class="titulo-formulario-login">Iniciar sesión</h1>
-        <form action="login.php" method="post" class="formulario-login">
+        <form action="usuario/usuario-login.php" method="post" class="formulario-login">
             <div class="input-container">
                 <input type="text" name="usuario" id="usuario" class="input-formulario-login" required placeholder=" ">
                 <label for="usuario" class="label-formulario-login">Usuario</label>
