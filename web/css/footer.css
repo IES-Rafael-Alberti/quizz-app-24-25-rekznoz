@@ -1,0 +1,37 @@
+.footer {
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer::before {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: #ffcc00;
+    margin: 0 auto 10px auto;
+    border-radius: 2px;
+}
+
+.footer-text {
+    margin: 0;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer:hover .footer-text {
+    opacity: 1;
+    color: #ffcc00;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        font-size: 14px;
+    }
+}
