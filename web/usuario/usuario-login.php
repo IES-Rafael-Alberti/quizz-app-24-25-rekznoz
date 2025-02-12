@@ -14,17 +14,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Consulta para verificar si el usuario existe
-    $sql = "SELECT * FROM usuarios WHERE usuario = :usuario";
+    $sql = "SELECT * FROM usuarios WHERE username = :usuario";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':usuario', $usuario);
     $stmt->execute();
     $usuario = $stmt->fetch();
 
-    if ($usuario && password_verify($contrasena, $usuario['contrasena'])) {
+    if ($usuario && password_verify($contrasena, $usuario['password'])) {
         // Iniciar sesión si las credenciales son correctas
         session_start();
-        $_SESSION['usuario'] = $usuario['usuario'];
-        $_SESSION['id'] = $usuario['id'];
+        $_SESSION['usuario'] = $usuario['username'];
+        $_SESSION['id'] = $usuario['user_id'];
         header('Location: ../index.php');
         exit;
     } else {
