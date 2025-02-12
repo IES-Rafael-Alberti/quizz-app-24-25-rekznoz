@@ -1,0 +1,112 @@
+/* Contenedor principal del formulario */
+.contenedor-formulario-login {
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Colores coherentes con el header/footer */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Título del formulario */
+.titulo-formulario-login {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Contenedor del campo de entrada y la etiqueta */
+.input-container {
+    position: relative; /* Asegura que el label se posicione correctamente */
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto 20px;
+}
+
+/* Etiquetas de los inputs */
+.label-formulario-login {
+    font-size: 16px;
+    color: #fff;
+    text-align: left;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 600;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    pointer-events: none; /* No bloquea la interacción con el input */
+}
+
+/* Campos de entrada de texto */
+.input-formulario-login {
+    width: 100%;
+    padding: 20px 10px 10px; /* Aumentamos el padding superior para dejar espacio para el label flotante */
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Cuando el input tiene foco o texto, el label sube */
+.input-formulario-login:focus + .label-formulario-login,
+.input-formulario-login:not(:placeholder-shown) + .label-formulario-login {
+    top: 10px;
+    font-size: 12px;
+    color: #ffcc00; /* Cambiar color al amarillo */
+}
+
+/* Enfoque del input */
+.input-formulario-login:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+
+/* Botón de envío */
+.boton-formulario-login {
+    background: #ffcc00;
+    color: #1e3c72;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover del botón */
+.boton-formulario-login:hover {
+    background: #ffd700;
+}
+
+/* Mensaje de error */
+.error-login {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ff4c4c;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Animación de fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
