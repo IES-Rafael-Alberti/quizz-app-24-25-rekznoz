@@ -1,6 +1,6 @@
 <?php
 
-$servidor = 'db';
+$servidor = 'localhost';
 $usuario = 'rafa';
 $clave = 'asdasd';
 $bd = 'quizz';
