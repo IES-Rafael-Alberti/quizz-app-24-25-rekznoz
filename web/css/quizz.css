@@ -1,0 +1,68 @@
+/* Contenedor principal */
+.contenedor-cuestionarios-hacer {
+    width: 65%;
+    margin: 40px auto;
+    text-align: center;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Título principal */
+.titulo-cuestionarios-hacer {
+    font-size: 28px;
+    color: #1e3c72;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Cuestionario individual */
+.cuestionario-hacer {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en los cuestionarios */
+.cuestionario-hacer:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Título de cada cuestionario */
+.titulo-cuestionario-hacer {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Descripción del cuestionario */
+.descripcion-cuestionario-hacer {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+/* Botón para hacer el cuestionario */
+.boton-cuestionario-hacer {
+    display: inline-block;
+    background: #ffcc00;
+    color: #1e3c72;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover en el botón */
+.boton-cuestionario-hacer:hover {
+    background: #e6b800;
+    color: #ffffff;
+}
