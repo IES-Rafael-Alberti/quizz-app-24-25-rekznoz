@@ -24,7 +24,7 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="cuestionario-hacer">
                     <h2 class="titulo-cuestionario-hacer"><?php echo $cuestionario['titulo']; ?></h2>
                     <p class="descripcion-cuestionario-hacer"><?php echo $cuestionario['descripcion']; ?></p>
-                    <a href="../quizz/cuestionario.php?id=<?php echo $cuestionario['quiz_id']; ?>" class="boton-cuestionario-hacer">Hacer cuestionario</a>
+                    <a href="ver-quizz.php?id=<?php echo $cuestionario['quiz_id']; ?>" class="boton-cuestionario-hacer">Hacer cuestionario</a>
                 </div>
                 <?php
             }
