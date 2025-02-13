@@ -21,8 +21,6 @@ if (isset($_GET['id'])) {
     <p><?php echo $quiz['description']; ?></p>
     <form action="resultado.php" method="post">
         <?php
-        // Aquí deberías iterar sobre las preguntas y mostrarlas en el formulario
-        // Por ejemplo:
         // foreach ($preguntas as $pregunta) {
         //     echo "<h2>{$pregunta['question']}</h2>";
         //     echo "<input type='radio' name='pregunta_{$pregunta['question_id']}' value='1'>{$pregunta['option1']}<br>";
