@@ -20,7 +20,7 @@ require_once '../db/Quizz.php';
         <?php
         $quizz = Quizz::getInstance();
         $quiz_id = $_GET['id'];
-        $cuestionario = $quizz->obtenerQuizzPorId($quiz_id);
+        $cuestionario = $quizz->obtenerQuizPorId($quiz_id);
         ?>
         <form action="../quizz/quizz-editar.php" method="post" class="formulario-cuestionario">
             <input type="hidden" name="quiz_id" value="<?php echo $cuestionario['quiz_id']; ?>">
