@@ -1,5 +1,5 @@
 <?php
-require_once '../db/pdo.php';
+require_once './db/pdo.php';
 
 class Usuario
 {
