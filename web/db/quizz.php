@@ -74,6 +74,16 @@ class Quizz
         return $stmt->fetch();
     }
 
+    // 📜 Obtener quizzes por usuario
+    public function obtenerQuizzesPorUsuario($creado_por): array
+    {
+        $sql = "SELECT * FROM quizzes WHERE creado_por = :creado_por";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':creado_por', $creado_por);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     // 🗑️ Eliminar un quiz
     public function eliminarQuiz($quiz_id)
     {
