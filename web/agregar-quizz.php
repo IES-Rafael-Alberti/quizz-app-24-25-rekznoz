@@ -23,6 +23,10 @@ if (!isset($_SESSION['usuario'])) {
                 <textarea name="descripcion" id="descripcion" class="input-formulario-cuestionario" required placeholder=" "></textarea>
                 <label for="descripcion" class="label-formulario-cuestionario">Descripción</label>
             </div>
+            <div class="input-container">
+                <input type="number" name="numero_preguntas" id="numero_preguntas" class="input-formulario-cuestionario" required placeholder=" ">
+                <label for="numero_preguntas" class="label-formulario-cuestionario">Número de preguntas</label>
+            </div>
             <input type="submit" value="Crear cuestionario" class="boton-formulario-cuestionario">
         </form>
         <?php
