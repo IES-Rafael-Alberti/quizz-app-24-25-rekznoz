@@ -22,16 +22,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($preguntas as $pregunta) {
         $preguntaId = $pregunta['pregunta_id'];
         $opcionSeleccionada = $_POST['pregunta_' . $preguntaId];
-        $esCorrecto = $pregunta['opcion_correcta'] === $opcionSeleccionada;
+        $esCorrecto = false;
 
-        $usuarioRespuesta->crearRespuesta($_SESSION['usuario_id'], $quizId, $preguntaId, $opcionSeleccionada, $esCorrecto);
+        if (isset($pregunta['opcion_correcta'], $opcionSeleccionada)) {
+            $esCorrecto = strtoupper(trim($pregunta['opcion_correcta'])) === strtoupper(trim($opcionSeleccionada));
+        } else {
+            echo "Error: Alguna de las variables no está definida.";
+        }
+
+        $usuarioRespuesta->crearRespuesta($_SESSION['id'], $quizId, $preguntaId, $opcionSeleccionada, $esCorrecto);
 
         if ($esCorrecto) {
             $puntuacion++;
         }
     }
 
-    $quizResultado->crearResultado($_SESSION['usuario_id'], $quizId, $puntuacion, $totalPreguntas);
+    $quizResultado->crearResultado($_SESSION['id'], $quizId, $puntuacion, $totalPreguntas);
 
     header('Location: ../vista/ver-quizz.php?id=' . $quizId);
     exit;
