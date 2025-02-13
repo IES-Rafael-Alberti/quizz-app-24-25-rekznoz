@@ -25,7 +25,7 @@ if (isset($_GET['id'])) {
     <div class="contenedor-cuestionario-quizz">
         <h1 class="titulo-cuestionario-quizz"><?php echo $quiz['titulo']; ?></h1>
         <p class="descripcion-cuestionario-quizz"><?php echo $quiz['descripcion']; ?></p>
-        <form action="calificar-quizz.php" method="post">
+        <form action="../quizz/quizz-calificar.php" method="post">
             <input type="hidden" name="quiz_id" value="<?php echo $quizId; ?>">
             <?php foreach ($preguntas as $pregunta): ?>
                 <div class="pregunta">
