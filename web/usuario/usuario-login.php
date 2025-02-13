@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($contrasena, $usuarioData['secreto'])) {
             session_start();
             $_SESSION['usuario'] = $usuario;
-            $_SESSION['id'] = $usuarioData['id'];
+            $_SESSION['id'] = $usuarioData['usuario_id'];
             header('Location: ../perfil.php');
         } else {
             header('Location: ../login.php?error-login=Contraseña incorrecta');
