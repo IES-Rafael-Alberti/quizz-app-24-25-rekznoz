@@ -13,6 +13,7 @@ if (!isset($_SESSION['usuario'])) {
 <?php include 'plantillas/header.php'; ?>
 <main class="main">
     <p>Bienvenido, <?php echo $_SESSION['usuario']; ?></p>
+    <a href="agregar-quizz.php">Agregar cuestionario</a>
 </main>
 <?php include 'plantillas/footer.php'; ?>
 </body>
