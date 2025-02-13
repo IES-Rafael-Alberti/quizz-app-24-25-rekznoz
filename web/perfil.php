@@ -12,7 +12,7 @@ if (!isset($_SESSION['usuario'])) {
 <body class="contenedor-principal">
 <?php include 'plantillas/header.php'; ?>
 <main class="main">
-    <p>asdasdasdasd</p>
+    <p>Bienvenido, <?php echo $_SESSION['usuario']; ?></p>
 </main>
 <?php include 'plantillas/footer.php'; ?>
 </body>
