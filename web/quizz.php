@@ -11,7 +11,7 @@ session_start();
     <p>Cuestionarios disponibles</p>
     <ul>
         <?php
-        require_once 'db/quizz.php';
+        require_once 'db/Quizz.php';
         $quizz = Quizz::getInstance();
         $quizzes = $quizz->obtenerTodosLosQuizzes();
         foreach ($quizzes as $quiz) {
