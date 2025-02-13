@@ -1,5 +1,5 @@
 <?php
-require_once './db/pdo.php'; // Asegúrate de que la conexión a la base de datos esté disponible
+require_once './pdo.php';
 
 class Quizz
 {
