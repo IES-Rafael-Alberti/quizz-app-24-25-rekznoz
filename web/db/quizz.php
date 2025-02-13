@@ -1,7 +1,7 @@
 <?php
-require_once './pdo.php';
+require_once 'PDO.php';
 
-class Quizz
+class Quiz
 {
     private static $instance = null;
     private $conn;
@@ -14,47 +14,62 @@ class Quizz
     }
 
     // Método para obtener la instancia del modelo
-    public static function getInstance(): ?Quizz
+    public static function getInstance(): ?Quiz
     {
         if (self::$instance === null) {
-            self::$instance = new Quizz();
+            self::$instance = new Quiz();
         }
 
         return self::$instance;
     }
 
-    // Crear un nuevo cuestionario
-    public function crearQuizz($title, $description)
+    // ✅ Crear un nuevo quiz
+    public function crearQuiz($titulo, $descripcion, $creado_por): false|string
     {
-        $sql = "INSERT INTO Cuestionarios (title, description) VALUES (:title, :description)";
+        $sql = "INSERT INTO quizzes (titulo, descripcion, creado_por) VALUES (:titulo, :descripcion, :creado_por)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':title', $title);
-        $stmt->bindParam(':description', $description);
-
-        try {
-            $stmt->execute();
-            return $this->conn->lastInsertId(); // Devuelve el ID del nuevo cuestionario
-        } catch (PDOException $e) {
-            return "Error al crear el cuestionario: " . $e->getMessage();
-        }
+        $stmt->bindParam(':titulo', $titulo);
+        $stmt->bindParam(':descripcion', $descripcion);
+        $stmt->bindParam(':creado_por', $creado_por);
+        $stmt->execute();
+        return $this->conn->lastInsertId();
     }
 
-    // Obtener un cuestionario por su ID
-    public function obtenerQuizz($quiz_id)
+    // 📌 Obtener un quiz por su ID
+    public function obtenerQuizPorId($quiz_id)
     {
-        $sql = "SELECT * FROM Cuestionarios WHERE quiz_id = :quiz_id";
+        $sql = "SELECT * FROM quizzes WHERE quiz_id = :quiz_id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':quiz_id', $quiz_id);
         $stmt->execute();
-        return $stmt->fetch(); // Devuelve el cuestionario encontrado
+        return $stmt->fetch();
     }
 
-    // Obtener todos los cuestionarios
+    // 📜 Obtener todos los quizzes
     public function obtenerTodosLosQuizzes()
     {
-        $sql = "SELECT * FROM Cuestionarios";
+        $sql = "SELECT * FROM quizzes";
+        $stmt = $this->conn->query($sql);
+        return $stmt->fetchAll();
+    }
+
+    // ✏️ Actualizar un quiz
+    public function actualizarQuiz($quiz_id, $titulo, $descripcion)
+    {
+        $sql = "UPDATE quizzes SET titulo = :titulo, descripcion = :descripcion WHERE quiz_id = :quiz_id";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(); // Devuelve todos los cuestionarios
+        $stmt->bindParam(':quiz_id', $quiz_id);
+        $stmt->bindParam(':titulo', $titulo);
+        $stmt->bindParam(':descripcion', $descripcion);
+        return $stmt->execute();
+    }
+
+    // 🗑️ Eliminar un quiz
+    public function eliminarQuiz($quiz_id)
+    {
+        $sql = "DELETE FROM quizzes WHERE quiz_id = :quiz_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':quiz_id', $quiz_id);
+        return $stmt->execute();
     }
 }
