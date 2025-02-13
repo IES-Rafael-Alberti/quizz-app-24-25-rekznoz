@@ -7,22 +7,31 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-if (isset($_GET['titulo']) && isset($_GET['descripcion'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $usuario_id = $_SESSION['id'];
-    $titulo = $_GET['titulo'];
-    $descripcion = $_GET['descripcion'];
+    $titulo = $_POST['titulo'];
+    $descripcion = $_POST['descripcion'];
     $quizz = Quizz::getInstance();
 
     $quizz->obtenerQuizPorTitulo($titulo);
 
-    if ($quizz->obtenerQuizPorTitulo($titulo) == null) {
-        $quizz->crearQuiz($titulo, $descripcion, $usuario_id);
-        header('Location: ../index.php');
-    } else {
+    if ($quizz->obtenerQuizPorTitulo($titulo)) {
         header('Location: ../agregar-quizz.php?error-creacion=El cuestionario ya existe.');
+        exit;
     }
+
+    $quizz->crearQuiz($titulo, $descripcion, $usuario_id);
+
+    if ($quizz->crearQuiz($titulo, $descripcion, $usuario_id)) {
+        header('Location: ../perfil.php');;
+    } else {
+        header('Location: ../agregar-quizz.php?error-creacion=Error al crear el cuestionario.');
+    }
+
+    exit;
 
 } else {
     header('Location: ../agregar-quizz.php?error-creacion=Error al crear el cuestionario.');
+    exit;
 }
