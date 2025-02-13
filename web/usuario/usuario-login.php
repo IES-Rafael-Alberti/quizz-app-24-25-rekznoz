@@ -1,5 +1,5 @@
 <?php
-require_once '../db/usuario.php';
+require_once '../db/Usuario.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
