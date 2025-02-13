@@ -1,7 +1,7 @@
 <?php
 require_once 'PDO.php';
 
-class Quiz
+class Quizz
 {
     private static $instance = null;
     private $conn;
@@ -14,10 +14,10 @@ class Quiz
     }
 
     // Método para obtener la instancia del modelo
-    public static function getInstance(): ?Quiz
+    public static function getInstance(): ?Quizz
     {
         if (self::$instance === null) {
-            self::$instance = new Quiz();
+            self::$instance = new Quizz();
         }
 
         return self::$instance;
