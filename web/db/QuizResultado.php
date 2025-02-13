@@ -28,12 +28,13 @@ class QuizResultado
     {
         $porcentaje = ($puntuacion / $total_preguntas) * 100;
 
-        $sql = "INSERT INTO quiz_resultados (usuario_id, quiz_id, puntuacion, total_preguntas, porcentaje) 
-                VALUES (:usuario_id, :quiz_id, :puntuacion, :total_preguntas, :porcentaje)";
+        $sql = "INSERT INTO quiz_resultados (usuario_id, quiz_id, intentos, puntuacion, total_preguntas, porcentaje) 
+                VALUES (:usuario_id, :quiz_id, :intentos, :puntuacion, :total_preguntas, :porcentaje)";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
         $stmt->bindParam(':quiz_id', $quiz_id, PDO::PARAM_INT);
+        $stmt->bindValue(':intentos', 1, PDO::PARAM_INT);
         $stmt->bindParam(':puntuacion', $puntuacion, PDO::PARAM_INT);
         $stmt->bindParam(':total_preguntas', $total_preguntas, PDO::PARAM_INT);
         $stmt->bindParam(':porcentaje', $porcentaje, PDO::PARAM_STR);
@@ -64,16 +65,34 @@ class QuizResultado
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // Actualizar un resultado de cuestionario
-    public function actualizarResultado($resultado_id, $puntuacion, $total_preguntas)
+    // Obtener Intentos de un usuario en un quiz
+    public function obtenerIntentosPorUsuario($usuario_id, $quiz_id)
     {
+        try {
+            $sql = "SELECT * FROM quiz_resultados WHERE usuario_id = :usuario_id AND quiz_id = :quiz_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+            $stmt->bindParam(':quiz_id', $quiz_id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    // Actualizar un resultado de cuestionario
+    public function actualizarResultado($resultado_id, $puntuacion, $total_preguntas, $intentos)
+    {
+
         $porcentaje = ($puntuacion / $total_preguntas) * 100;
 
         $sql = "UPDATE quiz_resultados 
-                SET puntuacion = :puntuacion, total_preguntas = :total_preguntas, porcentaje = :porcentaje 
+                SET intentos = :intentos, puntuacion = :puntuacion, total_preguntas = :total_preguntas, porcentaje = :porcentaje 
                 WHERE resultado_id = :resultado_id";
 
         $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':intentos', $intentos, PDO::PARAM_INT);
         $stmt->bindParam(':puntuacion', $puntuacion, PDO::PARAM_INT);
         $stmt->bindParam(':total_preguntas', $total_preguntas, PDO::PARAM_INT);
         $stmt->bindParam(':porcentaje', $porcentaje, PDO::PARAM_STR);
