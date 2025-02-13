@@ -64,6 +64,16 @@ class Quizz
         return $stmt->execute();
     }
 
+    // Obtener Quiz por titulo
+    public function obtenerQuizPorTitulo($titulo)
+    {
+        $sql = "SELECT * FROM quizzes WHERE titulo = :titulo";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':titulo', $titulo);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
     // 🗑️ Eliminar un quiz
     public function eliminarQuiz($quiz_id)
     {
