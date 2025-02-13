@@ -37,7 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $quizResultado->crearResultado($_SESSION['id'], $quizId, $puntuacion, $totalPreguntas);
+    $intentos = $quizResultado->obtenerIntentosPorUsuario($_SESSION['id'], $quizId);
+
+    if ($intentos) {
+        $quizResultado->actualizarResultado($intentos['resultado_id'], $puntuacion, $totalPreguntas, $intentos['intentos'] + 1);
+    } else {
+        $quizResultado->crearResultado($_SESSION['id'], $quizId, $puntuacion, $totalPreguntas);
+    }
 
     header('Location: ../vista/ver-quizz.php?id=' . $quizId);
     exit;
