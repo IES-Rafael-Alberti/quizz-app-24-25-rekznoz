@@ -1,0 +1,103 @@
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para la sección de inicio-perfil */
+.inicio-perfil {
+    background: #f8f9fa; /* Color de fondo claro */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Estilo del texto de bienvenida */
+.inicio-perfil p {
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Enlace de agregar cuestionario */
+.inicio-perfil a {
+    display: inline-block;
+    background-color: #2a5298; /* Color de fondo azul */
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto hover para el enlace */
+.inicio-perfil a:hover {
+    background-color: #1e3c72; /* Color oscuro al hacer hover */
+}
+
+/* Contenedor de los cuestionarios */
+.contenedor-cuestionarios {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Título de los cuestionarios */
+.titulo-mis-cuestionarios {
+    font-size: 28px;
+    color: #2a5298;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Estilos para cada cuestionario */
+.cuestionario {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover en los cuestionarios */
+.cuestionario:hover {
+    transform: translateY(-5px);
+}
+
+/* Título de cada cuestionario */
+.titulo-cuestionario {
+    font-size: 22px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Descripción del cuestionario */
+.descripcion-cuestionario {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Estilo para los botones de editar y ver */
+.boton-cuestionario {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #333;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto hover en los botones */
+.boton-cuestionario:hover {
+    background-color: #e6b800;
+    transform: scale(1.05);
+}
