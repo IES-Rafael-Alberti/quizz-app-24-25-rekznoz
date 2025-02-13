@@ -17,8 +17,8 @@ if (isset($_GET['id'])) {
 <body class="contenedor-principal">
 <?php include 'plantillas/header.php'; ?>
 <main class="main">
-    <h1><?php echo $quiz['title']; ?></h1>
-    <p><?php echo $quiz['description']; ?></p>
+    <h1><?php echo $quiz['titulo']; ?></h1>
+    <p><?php echo $quiz['descripcion']; ?></p>
     <form action="resultado.php" method="post">
         <?php
         // foreach ($preguntas as $pregunta) {
