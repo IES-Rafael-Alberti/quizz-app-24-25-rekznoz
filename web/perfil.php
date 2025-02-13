@@ -14,6 +14,7 @@ if (!isset($_SESSION['usuario'])) {
 <main class="main">
     <p>Bienvenido, <?php echo $_SESSION['usuario']; ?></p>
     <a href="agregar-quizz.php">Agregar cuestionario</a>
+    <a href="mis-quizz.php">Mis cuestionarios</a>
 </main>
 <?php include 'plantillas/footer.php'; ?>
 </body>
