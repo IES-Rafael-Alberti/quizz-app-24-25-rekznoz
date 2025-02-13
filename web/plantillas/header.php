@@ -9,10 +9,9 @@
             if (isset($_SESSION['usuario'])) {
                 // Mostrar opciones para usuarios logueados
                 echo '<li class="nav-item">
-                        <a href="usuario/usuario-logout.php" class="nav-link">Cerrar sesión</a>
-                      </li>
-                      <li class="nav-item">
                         <a href="perfil.php" class="nav-link">Perfil</a>
+                      </li><li class="nav-item">
+                        <a href="usuario/usuario-logout.php" class="nav-link">Cerrar sesión</a>
                       </li>';
             } else {
                 // Mostrar opciones para usuarios no logueados
