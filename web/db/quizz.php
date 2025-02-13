@@ -26,13 +26,17 @@ class Quizz
     // ✅ Crear un nuevo quiz
     public function crearQuiz($titulo, $descripcion, $creado_por): false|string
     {
-        $sql = "INSERT INTO quizzes (titulo, descripcion, creado_por) VALUES (:titulo, :descripcion, :creado_por)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':titulo', $titulo);
-        $stmt->bindParam(':descripcion', $descripcion);
-        $stmt->bindParam(':creado_por', $creado_por);
-        $stmt->execute();
-        return $this->conn->lastInsertId();
+        try {
+            $sql = "INSERT INTO quizzes (titulo, descripcion, creado_por) VALUES (:titulo, :descripcion, :creado_por)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':titulo', $titulo);
+            $stmt->bindParam(':descripcion', $descripcion);
+            $stmt->bindParam(':creado_por', $creado_por);
+            $stmt->execute();
+            return $this->conn->lastInsertId();
+        } catch (PDOException $e) {
+            return false;
+        }
     }
 
     // 📌 Obtener un quiz por su ID
