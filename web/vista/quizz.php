@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login.php');
+    exit;
+}
 ?>
 
 <!doctype html>
@@ -8,17 +12,25 @@ session_start();
 <body class="contenedor-principal">
 <?php include '../plantillas/header.php'; ?>
 <main class="main">
-    <p>Cuestionarios disponibles</p>
-    <ul>
-        <?php
-        require_once '../db/Quizz.php';
-        $quizz = Quizz::getInstance();
-        $quizzes = $quizz->obtenerTodosLosQuizzes();
-        foreach ($quizzes as $quiz) {
-            echo "<li><a href='cuestionario.php?id={$quiz['quiz_id']}'>{$quiz['title']}</a></li>";
-        }
-        ?>
-    </ul>
+    <div class="contenedor-cuestionarios-hacer">
+        <h1 class="titulo-cuestionarios-hacer">Cuestionarios</h1>
+        <div class="contenedor-cuestionarios-hacer">
+            <?php
+            require_once '../db/Quizz.php';
+            $quizz = Quizz::getInstance();
+            $cuestionarios = $quizz->obtenerTodosLosQuizzes();
+            foreach ($cuestionarios as $cuestionario) {
+                ?>
+                <div class="cuestionario-hacer">
+                    <h2 class="titulo-cuestionario-hacer"><?php echo $cuestionario['titulo']; ?></h2>
+                    <p class="descripcion-cuestionario-hacer"><?php echo $cuestionario['descripcion']; ?></p>
+                    <a href="../quizz/cuestionario.php?id=<?php echo $cuestionario['quiz_id']; ?>" class="boton-cuestionario-hacer">Hacer cuestionario</a>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
 </main>
 <?php include '../plantillas/footer.php'; ?>
 </body>
