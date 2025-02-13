@@ -60,6 +60,7 @@
 
 /* Estilos para las opciones de respuesta (select) */
 select {
+    margin-top: 10px;
     width: 100%;
     padding: 10px 15px;
     font-size: 16px;
