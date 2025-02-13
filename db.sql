@@ -13,11 +13,11 @@ CREATE TABLE usuarios (
 -- Tabla de Cuestionarios
 CREATE TABLE quizzes (
     quiz_id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT,
-    created_by INT NOT NULL,
+    titulo VARCHAR(255) NOT NULL,
+    descripcion TEXT,
+    creado_por INT NOT NULL,
     fecha_creado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (created_by) REFERENCES usuarios(user_id) ON DELETE CASCADE
+    FOREIGN KEY (creado_por) REFERENCES usuarios(usuario_id) ON DELETE CASCADE
 );
 
 -- Tabla de Preguntas
@@ -26,8 +26,8 @@ CREATE TABLE preguntas (
     quiz_id INT NOT NULL,
     pregunta_texto TEXT NOT NULL,
     opcion_a VARCHAR(255) NOT NULL,
-    opcion_c VARCHAR(255) NOT NULL,
     opcion_b VARCHAR(255) NOT NULL,
+    opcion_c VARCHAR(255) NOT NULL,
     opcion_d VARCHAR(255) NOT NULL,
     opcion_correcta ENUM('A', 'B', 'C', 'D') NOT NULL,
     FOREIGN KEY (quiz_id) REFERENCES quizzes(quiz_id) ON DELETE CASCADE
@@ -55,7 +55,7 @@ CREATE TABLE quiz_resultados (
     puntuacion INT NOT NULL, -- Número de respuestas correctas
     total_preguntas INT NOT NULL,
     porcentaje FLOAT NOT NULL, -- % de aciertos
-    fecha_comletado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_completado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE,
-    FOREIGN KEY (quiz_id) REFERENCES preguntas(quiz_id) ON DELETE CASCADE
+    FOREIGN KEY (quiz_id) REFERENCES quizzes(quiz_id) ON DELETE CASCADE
 );
