@@ -1,5 +1,5 @@
 <?php
-require_once 'db/quizz.php';
+require_once 'db/Quizz.php';
 session_start();
 
 if (isset($_GET['id'])) {
