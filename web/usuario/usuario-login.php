@@ -1,5 +1,5 @@
 <?php
-require_once '../db/pdo.php';
+require_once '../db/usuario.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -13,23 +13,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Consulta para verificar si el usuario existe
-    $sql = "SELECT * FROM usuarios WHERE username = :usuario";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':usuario', $usuario);
-    $stmt->execute();
-    $usuario = $stmt->fetch();
+    $model = Usuario::getInstance();
 
-    if ($usuario && password_verify($contrasena, $usuario['password'])) {
-        // Iniciar sesión si las credenciales son correctas
-        session_start();
-        $_SESSION['usuario'] = $usuario['username'];
-        $_SESSION['id'] = $usuario['user_id'];
-        header('Location: ../index.php');
-        exit;
+    // Verificar si el usuario existe
+    $usuarioData = $model->verificarUsuario($usuario);
+    if ($usuarioData) {
+        // Verificar la contraseña
+        if (password_verify($contrasena, $usuarioData['secreto'])) {
+            session_start();
+            $_SESSION['usuario'] = $usuario;
+            $_SESSION['id'] = $usuarioData['id'];
+            header('Location: ../perfil.php');
+        } else {
+            header('Location: ../login.php?error-login=Contraseña incorrecta');
+        }
     } else {
-        // Redirigir con error si las credenciales son incorrectas
-        header('Location: ../login.php?error-login=Usuario o contraseña incorrectos');
-        exit;
+        header('Location: ../login.php?error-login=Usuario no encontrado');
     }
+    exit;
 }
