@@ -1,0 +1,92 @@
+/* Estilos generales del contenedor del formulario */
+.contenedor-formulario-cuestionario {
+    background: #f4f7fc; /* Fondo suave */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 600px;
+    margin: 50px auto;
+    box-sizing: border-box; /* Asegura que los elementos se ajusten dentro del contenedor */
+}
+
+/* Título del formulario */
+.titulo-formulario-cuestionario {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2a5298;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Contenedor de cada input */
+.input-container {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+/* Estilos para los inputs y textarea */
+.input-formulario-cuestionario {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #fff;
+    box-sizing: border-box; /* Asegura que el padding no sobresalga del ancho total */
+}
+
+/* Foco (cuando el input está seleccionado) */
+.input-formulario-cuestionario:focus {
+    border-color: #2a5298;
+}
+
+/* Estilos de la etiqueta del formulario */
+.label-formulario-cuestionario {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+    transition: all 0.3s ease;
+}
+
+/* Cuando el input tiene texto, mueve la etiqueta */
+.input-formulario-cuestionario:focus ~ .label-formulario-cuestionario,
+.input-formulario-cuestionario:not(:placeholder-shown) ~ .label-formulario-cuestionario {
+    top: -10px;
+    font-size: 14px;
+    color: #2a5298;
+}
+
+/* Estilo del botón de envío */
+.boton-formulario-cuestionario {
+    width: 100%;
+    padding: 12px 20px;
+    background: #ffcc00;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-sizing: border-box; /* Ajusta el botón dentro del contenedor */
+}
+
+/* Hover sobre el botón */
+.boton-formulario-cuestionario:hover {
+    background: #ff9900;
+}
+
+/* Estilo del mensaje de error */
+.error-creacion {
+    display: block;
+    text-align: center;
+    color: #e74c3c;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
