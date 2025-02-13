@@ -35,7 +35,6 @@ if (!isset($_SESSION['usuario'])) {
         }
         ?>
     </div>
-
 </main>
 <?php include 'plantillas/footer.php'; ?>
 </body>
