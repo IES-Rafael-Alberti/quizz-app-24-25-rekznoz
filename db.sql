@@ -52,6 +52,7 @@ CREATE TABLE quiz_resultados (
     resultado_id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
     quiz_id INT NOT NULL,
+    intentos INT NOT NULL,
     puntuacion INT NOT NULL, -- Número de respuestas correctas
     total_preguntas INT NOT NULL,
     porcentaje FLOAT NOT NULL, -- % de aciertos
