@@ -1,5 +1,5 @@
-CREATE DATABASE quiz;
-USE quiz;
+CREATE DATABASE quizz;
+USE quizz;
 
 -- Tabla de Usuarios
 CREATE TABLE usuarios (
