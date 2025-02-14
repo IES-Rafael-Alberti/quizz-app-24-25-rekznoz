@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($usuario) || empty($contrasena)) {
         // Redirigir si los campos están vacíos
-        header('Location: ../login.php?error-login=Campos vacíos');
+        header('Location: ../vista/login.php?error-login=Campos vacíos');
         exit;
     }
 
@@ -23,12 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_start();
             $_SESSION['usuario'] = $usuario;
             $_SESSION['id'] = $usuarioData['usuario_id'];
-            header('Location: ../perfil.php');
+            $_SESSION['rol'] = $usuarioData['rol'];
+            header('Location: ../vista/perfil.php');
         } else {
-            header('Location: ../login.php?error-login=Contraseña incorrecta');
+            header('Location: ../vista/login.php?error-login=Contraseña incorrecta');
         }
     } else {
-        header('Location: ../login.php?error-login=Usuario no encontrado');
+        header('Location: ../vista/login.php?error-login=Usuario no encontrado');
     }
     exit;
 }
