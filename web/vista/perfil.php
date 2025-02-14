@@ -45,6 +45,7 @@ require_once '../db/QuizResultado.php';
                     echo '<p class="descripcion-cuestionario">' . $cuestionario['descripcion'] . '</p>';
                     echo '<a href="editar-quizz.php?id=' . $cuestionario['quiz_id'] . '" class="boton-cuestionario">Editar cuestionario</a>';
                     echo '<a href="ver-quizz.php?id=' . $cuestionario['quiz_id'] . '" class="boton-cuestionario">Ver cuestionario</a>';
+                    echo '<a href="../quizz/quizz-borrar.php?id=' . $cuestionario['quiz_id'] . '" class="boton-cuestionario">Eliminar cuestionario</a>';
                     echo '</div>';
                 }
             }
