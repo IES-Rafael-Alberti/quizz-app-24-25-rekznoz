@@ -7,11 +7,17 @@
             <?php
             // Comprobar si el usuario está logueado
             if (isset($_SESSION['usuario'])) {
+                if ($_SESSION['rol'] === 'admin') {
+                    // Mostrar opciones para usuarios administradores
+                    echo '<li class="nav-item">
+                            <a href="lista-usuarios.php" class="nav-link">Usuarios</a>
+                          </li>';
+                }
                 // Mostrar opciones para usuarios logueados
                 echo '<li class="nav-item">
                         <a href="perfil.php" class="nav-link">Perfil</a>
                       </li><li class="nav-item">
-                        <a href="usuario/usuario-logout.php" class="nav-link">Cerrar sesión</a>
+                        <a href="../usuario/usuario-logout.php" class="nav-link">Cerrar sesión</a>
                       </li>';
             } else {
                 // Mostrar opciones para usuarios no logueados
