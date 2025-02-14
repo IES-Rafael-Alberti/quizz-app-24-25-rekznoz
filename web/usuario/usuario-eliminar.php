@@ -8,12 +8,17 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuario_id = $_POST['usuario_id'];
+if ($_SESSION['rol'] !== 'admin') {
+    header('Location: ../vista/index.php');
+    exit;
+}
 
-    $usuario = Usuario::getInstance();
-
-    $usuario->eliminarUsuario($usuario_id);
+if (!isset($_GET['id'])) {
     header('Location: ../vista/lista-usuarios.php');
     exit;
 }
+
+$usuarioInstancia = Usuario::getInstance();
+$usuario = $usuarioInstancia->eliminarUsuario($_GET['id']);
+
+header('Location: ../vista/lista-usuarios.php');
