@@ -2,6 +2,6 @@
 session_start();
 session_destroy();
 if (isset($_SESSION["usuario"])) {
-    header("Location: ../index.php");
+    header("Location: ../vista/index.php");
     exit;
 }
