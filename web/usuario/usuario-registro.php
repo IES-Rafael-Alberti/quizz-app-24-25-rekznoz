@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_start();
         $_SESSION['usuario'] = $usuario;
         $_SESSION['id'] = $id;
+        $_SESSION['rol'] = 'estudiante';
         header('Location: ../index.php');
         exit;
     } else {
