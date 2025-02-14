@@ -5,7 +5,7 @@ require_once '../db/Pregunta.php';
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['usuario'])) {
-    header('Location: ../login.php');
+    header('Location: ../vista/login.php');
     exit;
 }
 
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         // Redirigir con éxito
-        header("Location: ../perfil.php?mensaje=Preguntas agregadas correctamente!");
+        header("Location: ../vista/perfil.php?mensaje=Preguntas agregadas correctamente!");
         exit;
 
     } catch (Exception $e) {
@@ -41,6 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 } else {
-    header('Location: ../perfil.php');
+    header('Location: ../vista/perfil.php');
     exit;
 }
