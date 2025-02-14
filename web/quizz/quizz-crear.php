@@ -3,7 +3,7 @@ require_once '../db/Quizz.php';
 
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header('Location: ../login.php');
+    header('Location: ../vista/login.php');
     exit;
 }
 
@@ -16,21 +16,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $quizz = Quizz::getInstance();
 
     if ($quizz->obtenerQuizPorTitulo($titulo)) {
-        header('Location: ../agregar-quizz.php?error-creacion=El cuestionario ya existe.');
+        header('Location: ../vista/agregar-quizz.php?error-creacion=El cuestionario ya existe.');
         exit;
     }
 
     $quizzCreado = $quizz->crearQuiz($titulo, $descripcion, $usuario_id);
 
     if ($quizzCreado) {
-        header('Location: ../agregar-preguntas.php?quiz_id=' . $quizzCreado . '&numero_preguntas=' . $numero_preguntas);
+        header('Location: ../vista/agregar-preguntas.php?quiz_id=' . $quizzCreado . '&numero_preguntas=' . $numero_preguntas);
         exit;
     } else {
-        header('Location: ../agregar-quizz.php?error-creacion=Error al crear el cuestionario.');
+        header('Location: ../vista/agregar-quizz.php?error-creacion=Error al crear el cuestionario.');
         exit;
     }
 
 } else {
-    header('Location: ../agregar-quizz.php?error-creacion=Error al crear el cuestionario.');
+    header('Location: ../vista/agregar-quizz.php?error-creacion=Error al crear el cuestionario.');
     exit;
 }
