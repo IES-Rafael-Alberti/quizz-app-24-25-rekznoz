@@ -62,7 +62,7 @@ require_once '../db/QuizResultado.php';
                             echo '<h2 class="titulo-cuestionario">' . $infoQuizz['titulo'] . '</h2>';
                             echo '<p class="descripcion-cuestionario">' . $infoQuizz['descripcion'] . '</p>';
                             echo '<p class="puntuacion-cuestionario">Puntuación: ' . $cuestionarioRealizado['puntuacion'] . '</p>';
-                            echo '<a href="ver-quizz.php?id=' . $infoQuizz['quiz_id'] . '" class="boton-cuestionario">Ver cuestionario</a>';
+                            echo '<a href="ver-quizz-completado.php?id=' . $infoQuizz['quiz_id'] . '" class="boton-cuestionario">Ver cuestionario</a>';
                             echo '</div>';
                         }
                     }
