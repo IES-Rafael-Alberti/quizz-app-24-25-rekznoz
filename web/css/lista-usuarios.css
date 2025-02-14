@@ -1,0 +1,94 @@
+/* Contenedor principal de la lista de usuarios */
+.contenedor-lista-usuarios {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título principal */
+.titulo-lista-usuarios {
+    font-size: 24px;
+    color: #1e3c72;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Tabla de usuarios */
+.tabla-lista-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Encabezado de la tabla */
+.tabla-lista-usuarios thead {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    font-size: 18px;
+}
+
+.tabla-lista-usuarios th,
+.tabla-lista-usuarios td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    align-content: center;
+}
+
+/* Alternancia de colores en filas */
+.tabla-lista-usuarios tbody tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+/* Formulario de actualización de rol */
+.contenedor-actualizar-rol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+}
+
+/* Estilos del selector de roles */
+.contenedor-actualizar-rol select {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* Botones de acción (Actualizar rol y Eliminar) */
+.boton-accion {
+    background: #ffcc00;
+    color: #333;
+    padding: 12px 12px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.boton-accion:hover {
+    background: #e0b400;
+}
+
+/* Responsive: Ajustes en pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenedor-actualizar-rol {
+        flex-direction: column;
+    }
+
+    .tabla-lista-usuarios th,
+    .tabla-lista-usuarios td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
