@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $quizResultado->crearResultado($usuarioId, $quizId, $puntuacion, $totalPreguntas);
     }
 
-    header('Location: ../vista/ver-quizz.php?id=' . $quizId);
+    header('Location: ../vista/ver-quizz-completado.php?id=' . $quizId);
     exit;
 }
 ?>
