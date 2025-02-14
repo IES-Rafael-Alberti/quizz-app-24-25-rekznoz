@@ -10,13 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Verificar que las contraseñas coincidan
     if ($contrasena !== $contrasena2) {
-        header('Location: ../registro.php?error-registro=Las contraseñas no coinciden');
+        header('Location: ../vista/registro.php?error-registro=Las contraseñas no coinciden');
         exit;
     }
 
     // Validar que el usuario no esté vacío
     if (empty($usuario) || empty($contrasena)) {
-        header('Location: ../registro.php?error-registro=Campos vacíos');
+        header('Location: ../vista/registro.php?error-registro=Campos vacíos');
         exit;
     }
 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Verificar si el usuario ya existe
     $usuarioExistente = $model->verificarUsuario($usuario);
     if ($usuarioExistente) {
-        header('Location: ../registro.php?error-registro=El usuario ya existe');
+        header('Location: ../vista/registro.php?error-registro=El usuario ya existe');
         exit;
     }
 
@@ -36,10 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['usuario'] = $usuario;
         $_SESSION['id'] = $id;
         $_SESSION['rol'] = 'estudiante';
-        header('Location: ../index.php');
+        header('Location: ../vista/index.php');
         exit;
     } else {
-        header('Location: ../registro.php?error-registro=Error al crear el usuario');
+        header('Location: ../vista/registro.php?error-registro=Error al crear el usuario');
         exit;
     }
 
